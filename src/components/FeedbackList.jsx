@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react'
 import FeedbackItem from './FeedbackItem';
-import Card from '../shared/Card'
+import Card from '../shared/Card';
 
 function FeedbackList({ feedback,deleteFeedback }) {
     if (!feedback || 0 === feedback.length) {
