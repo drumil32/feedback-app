@@ -1,7 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import React,{useContext} from 'react';
+import FeedbackContest from '../context/FeedbackContext';
+// import PropTypes from 'prop-types';
 
-function FeedbackStats({feedback}) {
+function FeedbackStats() {
+    const {feedback} = useContext(FeedbackContest);
     let rating = feedback.reduce( (acc,curr) => {
         return acc+curr.rating;
     } ,0)/feedback.length;
@@ -16,8 +18,8 @@ function FeedbackStats({feedback}) {
     )
 }
 
-FeedbackStats.prototype = {
-    feedback: PropTypes.array.isRequired
-}
+// FeedbackStats.prototype = {
+//     feedback: PropTypes.array.isRequired
+// }
 
 export default FeedbackStats

@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react'
+// import PropTypes from 'prop-types';
+import React,{useContext} from 'react'
 import FeedbackItem from './FeedbackItem';
 import Card from '../shared/Card';
+import FeedbackContext from '../context/FeedbackContext';
 
-function FeedbackList({ feedback,deleteFeedback }) {
+function FeedbackList() {
+    const {feedback} = useContext(FeedbackContext);
     if (!feedback || 0 === feedback.length) {
         return <Card>no feedback yet</Card>
     }
@@ -13,7 +15,7 @@ function FeedbackList({ feedback,deleteFeedback }) {
                 {
                     feedback.map((item, id) => {
                         return (
-                            <FeedbackItem key={id} item={item} deleteFeedback={deleteFeedback}/>
+                            <FeedbackItem key={id} item={item}/>
                         )
                     })
                 }
@@ -22,15 +24,15 @@ function FeedbackList({ feedback,deleteFeedback }) {
     )
 }
 
-FeedbackList.propTypes = {
-    // feedback: PropTypes.array.isRequired,
-    feedback: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            text: PropTypes.string.isRequired,
-            rating: PropTypes.number.isRequired,
-        })
-    )
-}
+// FeedbackList.propTypes = {
+//     // feedback: PropTypes.array.isRequired,
+//     feedback: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.number.isRequired,
+//             text: PropTypes.string.isRequired,
+//             rating: PropTypes.number.isRequired,
+//         })
+//     )
+// }
 
 export default FeedbackList;

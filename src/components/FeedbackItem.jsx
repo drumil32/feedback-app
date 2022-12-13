@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react'
+import React,{useContext} from 'react'
 import Card from '../shared/Card';
 import {FaTimes} from 'react-icons/fa';
+import FeedbackContext from '../context/FeedbackContext';
 
-function FeedbackItem({ item,deleteFeedback }) {
+function FeedbackItem({ item }) {
+    const {deleteFeedback} = useContext(FeedbackContext);
     return (
         <Card>
             <div className="num-display">{item.rating}</div>
